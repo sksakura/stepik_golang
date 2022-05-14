@@ -16,10 +16,12 @@ func main() {
 		panic(err)
 	}
 
+	fmt.Println("RegisterOrdersServer...")
 	s := grpc.NewServer()
 	server := &handlers.Server{}
 	orderservice.RegisterOrdersServer(s, server)
 	if err := s.Serve(lis); err != nil {
 		panic(err)
 	}
+	fmt.Println("RegisterOrdersServer... success")
 }
